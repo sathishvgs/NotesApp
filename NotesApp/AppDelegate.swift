@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print(" Application in Active ")
     }
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
     
         print(" Application Terminated ")
