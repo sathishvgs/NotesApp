@@ -44,7 +44,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         print(" Application Terminated ")
     }
-
-
 }
 

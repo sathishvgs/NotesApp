@@ -14,6 +14,7 @@
 		CE50C4BD1EB1CAAB00A30F6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE50C4BB1EB1CAAB00A30F6A /* LaunchScreen.storyboard */; };
 		CE50C4C81EB1CAAB00A30F6A /* NotesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50C4C71EB1CAAB00A30F6A /* NotesAppTests.swift */; };
 		CE50C4D31EB1CAAB00A30F6A /* NotesAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50C4D21EB1CAAB00A30F6A /* NotesAppUITests.swift */; };
+		CE97F93B1EB88B7100EB16FD /* MyNavigaitonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97F93A1EB88B7100EB16FD /* MyNavigaitonController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		CE50C4CE1EB1CAAB00A30F6A /* NotesAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE50C4D21EB1CAAB00A30F6A /* NotesAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesAppUITests.swift; sourceTree = "<group>"; };
 		CE50C4D41EB1CAAB00A30F6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE97F93A1EB88B7100EB16FD /* MyNavigaitonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigaitonController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				CE50C4B21EB1CAAB00A30F6A /* AppDelegate.swift */,
 				CE50C4B41EB1CAAB00A30F6A /* ViewController.swift */,
+				CE97F93A1EB88B7100EB16FD /* MyNavigaitonController.swift */,
 				CE50C4B61EB1CAAB00A30F6A /* Main.storyboard */,
 				CE50C4B91EB1CAAB00A30F6A /* Assets.xcassets */,
 				CE50C4BB1EB1CAAB00A30F6A /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 			files = (
 				CE50C4B51EB1CAAB00A30F6A /* ViewController.swift in Sources */,
 				CE50C4B31EB1CAAB00A30F6A /* AppDelegate.swift in Sources */,
+				CE97F93B1EB88B7100EB16FD /* MyNavigaitonController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +509,7 @@
 				CE50C4D91EB1CAAB00A30F6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE50C4DA1EB1CAAB00A30F6A /* Build configuration list for PBXNativeTarget "NotesAppTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +518,7 @@
 				CE50C4DC1EB1CAAB00A30F6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE50C4DD1EB1CAAB00A30F6A /* Build configuration list for PBXNativeTarget "NotesAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +527,7 @@
 				CE50C4DF1EB1CAAB00A30F6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
