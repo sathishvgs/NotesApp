@@ -60,7 +60,7 @@
         <!--View Controller-->
         <scene sceneID="pTt-Ne-ruI">
             <objects>
-                <viewController id="N8E-Yf-KT8" sceneMemberID="viewController">
+                <viewController id="N8E-Yf-KT8" customClass="ViewController" customModule="NotesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SKc-Gg-dfe"/>
                         <viewControllerLayoutGuide type="bottom" id="TrZ-lM-abJ"/>
@@ -69,20 +69,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="controller #1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLI-zG-8hL">
-                                <rect key="frame" x="116" y="164" width="138" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wc7-8w-PQ4">
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="iW5-V1-25z"/>
+                                    <constraint firstAttribute="height" constant="554" id="jM5-kw-IxC"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="h4T-0Y-sSX">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h4T-0Y-sSX" id="kvk-Q1-b2J">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="N8E-Yf-KT8" id="t5i-9h-XMr"/>
+                                    <outlet property="delegate" destination="N8E-Yf-KT8" id="yzl-JN-e0u"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mLI-zG-8hL" firstAttribute="top" secondItem="SKc-Gg-dfe" secondAttribute="bottom" constant="100" id="Qze-LE-8Oo"/>
-                            <constraint firstItem="mLI-zG-8hL" firstAttribute="leading" secondItem="HNX-MU-KYK" secondAttribute="leadingMargin" constant="100" id="qPR-al-sX6"/>
+                            <constraint firstItem="Wc7-8w-PQ4" firstAttribute="trailing" secondItem="HNX-MU-KYK" secondAttribute="trailingMargin" id="1g6-kZ-K9V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wc7-8w-PQ4" secondAttribute="trailing" id="1l8-aG-cdJ"/>
+                            <constraint firstItem="Wc7-8w-PQ4" firstAttribute="top" secondItem="HNX-MU-KYK" secondAttribute="topMargin" id="4Ff-NJ-jQQ"/>
+                            <constraint firstItem="Wc7-8w-PQ4" firstAttribute="top" secondItem="SKc-Gg-dfe" secondAttribute="bottom" id="U5d-eb-4Up"/>
+                            <constraint firstItem="Wc7-8w-PQ4" firstAttribute="leading" secondItem="HNX-MU-KYK" secondAttribute="leadingMargin" id="dms-RP-NRb"/>
+                            <constraint firstItem="TrZ-lM-abJ" firstAttribute="top" secondItem="Wc7-8w-PQ4" secondAttribute="bottom" id="muc-sf-gCd"/>
+                            <constraint firstItem="Wc7-8w-PQ4" firstAttribute="leading" secondItem="HNX-MU-KYK" secondAttribute="leadingMargin" id="q0f-dc-DdH"/>
+                            <constraint firstItem="TrZ-lM-abJ" firstAttribute="top" secondItem="Wc7-8w-PQ4" secondAttribute="bottom" id="w0t-lw-pWZ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="v8R-wJ-hy2"/>
+                    <connections>
+                        <outlet property="view" destination="Wc7-8w-PQ4" id="QqI-Ax-ZAN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ht-iH-kUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
