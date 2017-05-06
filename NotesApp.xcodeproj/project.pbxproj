@@ -15,6 +15,11 @@
 		CE50C4C81EB1CAAB00A30F6A /* NotesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50C4C71EB1CAAB00A30F6A /* NotesAppTests.swift */; };
 		CE50C4D31EB1CAAB00A30F6A /* NotesAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50C4D21EB1CAAB00A30F6A /* NotesAppUITests.swift */; };
 		CE97F93B1EB88B7100EB16FD /* MyNavigaitonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE97F93A1EB88B7100EB16FD /* MyNavigaitonController.swift */; };
+		CE9C30BE1EBB07E900B3B3E4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C30BD1EBB07E900B3B3E4 /* TabBarViewController.swift */; };
+		CE9C30C01EBB1E0000B3B3E4 /* SecondTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9C30BF1EBB1E0000B3B3E4 /* SecondTabBarController.swift */; };
+		CE9F99201EBABF0D00DFB2E4 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F991F1EBABF0D00DFB2E4 /* NotesViewController.swift */; };
+		CEC99F521EBC9C2900FBB846 /* TextDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC99F511EBC9C2900FBB846 /* TextDisplayViewController.swift */; };
+		CED70D611EB9E7720086BEB7 /* NoteEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED70D601EB9E7720086BEB7 /* NoteEditorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		CE50C4D21EB1CAAB00A30F6A /* NotesAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesAppUITests.swift; sourceTree = "<group>"; };
 		CE50C4D41EB1CAAB00A30F6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE97F93A1EB88B7100EB16FD /* MyNavigaitonController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigaitonController.swift; sourceTree = "<group>"; };
+		CE9C30BD1EBB07E900B3B3E4 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		CE9C30BF1EBB1E0000B3B3E4 /* SecondTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondTabBarController.swift; sourceTree = "<group>"; };
+		CE9F991F1EBABF0D00DFB2E4 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		CEC99F511EBC9C2900FBB846 /* TextDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextDisplayViewController.swift; sourceTree = "<group>"; };
+		CED70D601EB9E7720086BEB7 /* NoteEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteEditorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +112,11 @@
 				CE50C4B21EB1CAAB00A30F6A /* AppDelegate.swift */,
 				CE50C4B41EB1CAAB00A30F6A /* ViewController.swift */,
 				CE97F93A1EB88B7100EB16FD /* MyNavigaitonController.swift */,
+				CED70D601EB9E7720086BEB7 /* NoteEditorViewController.swift */,
+				CE9F991F1EBABF0D00DFB2E4 /* NotesViewController.swift */,
+				CE9C30BD1EBB07E900B3B3E4 /* TabBarViewController.swift */,
+				CE9C30BF1EBB1E0000B3B3E4 /* SecondTabBarController.swift */,
+				CEC99F511EBC9C2900FBB846 /* TextDisplayViewController.swift */,
 				CE50C4B61EB1CAAB00A30F6A /* Main.storyboard */,
 				CE50C4B91EB1CAAB00A30F6A /* Assets.xcassets */,
 				CE50C4BB1EB1CAAB00A30F6A /* LaunchScreen.storyboard */,
@@ -263,6 +278,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE50C4B51EB1CAAB00A30F6A /* ViewController.swift in Sources */,
+				CE9F99201EBABF0D00DFB2E4 /* NotesViewController.swift in Sources */,
+				CED70D611EB9E7720086BEB7 /* NoteEditorViewController.swift in Sources */,
+				CE9C30C01EBB1E0000B3B3E4 /* SecondTabBarController.swift in Sources */,
+				CEC99F521EBC9C2900FBB846 /* TextDisplayViewController.swift in Sources */,
+				CE9C30BE1EBB07E900B3B3E4 /* TabBarViewController.swift in Sources */,
 				CE50C4B31EB1CAAB00A30F6A /* AppDelegate.swift in Sources */,
 				CE97F93B1EB88B7100EB16FD /* MyNavigaitonController.swift in Sources */,
 			);

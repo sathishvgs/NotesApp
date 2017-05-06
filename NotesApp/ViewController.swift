@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
     
-    let list = ["Apple","Banana","Blue Berry","Grapes"]
+   /* let list = ["Apple","Banana","Blue Berry","Grapes"]
     
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -24,7 +24,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
         cell.textLabel?.text = list[indexPath.row]
         return (cell)
-    }
+    }*/
+    
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,13 +57,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         print(" view Disappeared")
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-       
-        print(" Memory warning ")
-    }
-
-
 }
 
