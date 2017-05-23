@@ -7,41 +7,20 @@
 //
 
 import UIKit
+import SwiftyDropbox
 
 class TabBarViewController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        }
+    }
     
-
-    
-
-     override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-//        guard let nc = self.tabBarController?.viewControllers?[1] as? UINavigationController else {
-//            return
-//        }
-//        if nc.topViewController is NotesViewController {
-//            var svc = nc.topViewController as! NotesViewController
-//        }
-
-    /*    let tabViewController1 = NotesViewController(nibName: "NotesViewController",bundle: nil)
-        let tabViewController2 = SecondTabBarController( nibName:"viewController",bundle: nil)
+        self.tabBarController?.navigationItem.hidesBackButton = true
         
-        let controllers = [tabViewController1,tabViewController2]
-        tabBarController?.viewControllers = controllers
         
-        tabViewController1.tabBarItem = UITabBarItem(title: "Notes", image: nil, tag: 1)
-        tabViewController1.tabBarItem = UITabBarItem(title: "Settings", image: nil, tag: 2) */
-        
-  
-        
-}
-    
-    
-    
-    
-    
+    }
     
 }

@@ -1,3 +1,4 @@
+
 //
 //  NotesViewController.swift
 //  NotesApp
@@ -8,71 +9,76 @@
 
 import UIKit
 
+import SwiftyDropbox
 
-
-
-class NotesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class NotesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NotesviewDelegate {
     
-    //var userTexts = [String: String]()
-    var userText:[String] = []
-    //var textField: String = ""
+    var listOfFileTitles: [String] = []
+    var dropBoxFiles: [String] = []
+    var storeUserFile: [String:String] = [:]
+    let userDefaults = UserDefaults()
+    var userFileList: [String] = []
+    var accessToken: String = ""
+    
+    let client = DropboxClientsManager.authorizedClient
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("View Did Load")
+        self.tableView.contentInset = UIEdgeInsetsMake(-60, 0, 0, 0);
+        self.listOfFilesFromDropbox()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
-        print("View will Appear")
+        
+        super.viewWillAppear(animated)
+        
+        self.tabBarController?.navigationItem.hidesBackButton = true
         self.tabBarController?.navigationItem.title = "Notes"
         
         let sendButton = UIBarButtonItem(title: "New", style: .plain, target: self, action: #selector(goToNoteEditorViewController))
         
         self.tabBarController?.navigationItem.rightBarButtonItem = sendButton
-        self.automaticallyAdjustsScrollViewInsets = false
+        //self.tableView.reloadData()
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        print("View Did appear")
-        let userDefaults = UserDefaults()
-        
-        if let dictionary = userDefaults.dictionary(forKey: "UserNotes"){
-            if let dictionaryTexts = dictionary as? [String : String] {
-                userText = [String](dictionaryTexts.keys)
-                
-                print("array values: \(userText)")
-                 self.tableView.reloadData()
-            }
-        }
+        self.fetchUserFile()
+        self.tableView.reloadData()
     }
+    
     
     func goToNoteEditorViewController() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        guard let viewController = storyboard.instantiateViewController(withIdentifier:"NoteEditorViewID") as? NoteEditorViewController else{
+        guard let vc = storyboard.instantiateViewController(withIdentifier:"NoteEditorViewID") as? NoteEditorViewController else{
             return
         }
-        present(viewController, animated: true, completion: nil)
+        self.navigationController?.present(vc, animated: true, completion: nil)
     }
     
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-
-        return userText.count
+        
+        return userFileList.count
     }
     
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = userText[indexPath.row]
+        cell.textLabel?.text = userFileList[indexPath.row]
+        print("The cell is \(cell)")
         return (cell)
     }
+    
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
@@ -81,7 +87,7 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
         guard let viewController = controller.instantiateViewController(withIdentifier:"TextDisplayID") as? TextDisplayViewController else{
             return
         }
-
+        
         let indexPath = tableView.indexPathForSelectedRow
         
         let currentCell = tableView.cellForRow(at: indexPath!)!
@@ -90,13 +96,90 @@ class NotesViewController: UIViewController, UITableViewDataSource, UITableViewD
         print(currentCell.textLabel!.text ?? "")
         
         viewController.textTitle = text
+        
         navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    
+    
+    
+    func didDoneButtonPressed() {
+        
+        if let dictionary = userDefaults.dictionary(forKey: "UserNotes"){
+            if let dictionaryText = dictionary as? [String : String] {
+                listOfFileTitles = [String](dictionaryText.keys)
+                
+                for file in listOfFileTitles{
+                    if !dropBoxFiles.contains(file) {
+                        dropBoxFiles.append(file)
+                    }
+                }
+                
+                print("Done button Dropbox \(dropBoxFiles)")
+                print("array values key : \(listOfFileTitles)")
+            }
+            self.tableView.reloadData()
+        }
+    }
+    
+    
+    func fetchUserFile() {
+        
+        if let file = userDefaults.object(forKey: "DropBoxFiles") {
+            
+            if let files = file as? [String] {
+                userFileList = files
+                print("The user File is\(userFileList)")
+                
+            }else {
+                
+                if !userFileList.contains(file as! String){
+                    
+                    userFileList.append(file as! String)
+                    print("The user File is\(userFileList)")
+                }
+            }
+        }
+    }
+    
+    
+    func listOfFilesFromDropbox() {
+        
+        let path = "/Files"
+        var fileName: String = ""
+        
+        print("The client address is \(String(describing: client))")
+        
+        print("The GET Current ACCOUNT   \(client!.users.getCurrentAccount())")
+        
+        
+        client?.files.listFolder(path: path).response { response, error in
+            
+            print("*** List folder ***")
+            
+            if let result = response {
+                
+                print("Folder contents: \(String(describing: response))")
+                
+                for entry in result.entries {
+                    
+                    fileName = entry.name.replacingOccurrences(of: ".txt", with: "")
+                    
+                    if !self.dropBoxFiles.contains(fileName) {
+                        print("The name is \(fileName)")
+                        self.dropBoxFiles.append(fileName)
+                    }
+                    self.userDefaults.set(self.dropBoxFiles, forKey: "DropBoxFiles")
+                }
+                self.fetchUserFile()
+                self.tableView.reloadData()
+            }
+            
+            if  let errors = error{
+                
+                print("The List Error is : \(errors)")
+            }
+        }
+    }
 }
-
-
-
-
-
-
 
